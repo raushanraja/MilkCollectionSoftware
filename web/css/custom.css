@@ -1,0 +1,62 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(/font/opsnsans/OpenSans-Bold.ttf)
+    /*,*/
+/*url(/font/opsnsans/OpenSans-BoldItalic.ttf)
+,*/
+/*url(/font/opsnsans/OpenSans-SemiBoldItalic.ttf),*/
+/*!**/
+/*url(/font/opsnsans/OpenSans-SemiBold.ttf)*/
+/*,*!*/
+/*url(/font/opsnsans/OpenSans-Regular.ttf),*/
+/*url(/font/opsnsans/OpenSans-LightItalic.ttf),*/
+/*url(/font/opsnsans/OpenSans-Light.ttf)*/
+    /*,*/
+/*url(/font/opsnsans/OpenSans-Italic.ttf),*/
+/*url(/font/opsnsans/OpenSans-ExtraBoldItalic.ttf),*/
+    /*url(/font/opsnsans/OpenSans-ExtraBold.ttf);*/
+
+}
+body{
+    background: #DCDCDC !important;
+  font-family: 'myFirstFont','Noto Sans', sans-serif !important;
+  font-weight: 900;
+
+
+}
+.navbar{
+    font-family: 'Noto Sans', sans-serif !important;
+}
+
+.active a{
+  background: #ff7043 !important;
+  color: #ffffff !important;
+}
+
+.bggrey{
+    background: #dcdcdc;
+  }
+  .yt-green-light{
+    background-color: rgba(29, 233, 182, 1);
+  }
+  .yt-green-dark{
+    background-color: rgba(0, 191, 165, 1);
+  }
+  .yt-orange-light{
+    background-color: rgba(245, 124, 0, 1);
+  }
+  .yt-orange-dark{
+    background-color: rgba(230, 81, 0, 1);
+  }
+  .yt-yellow-light{
+    background-color: rgba(255, 202, 40, 1);
+  }
+  .yt-yellow-dark{
+    background-color: rgba(255, 179, 0, 1);
+  }
+  .yt-pink-light{
+    background-color: rgba(233, 30, 99, 1);
+  }
+  .yt-pink-dark{
+    background-color: rgba(194, 24, 91, 1);
+  }

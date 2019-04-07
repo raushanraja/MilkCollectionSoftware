@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Address Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/fa5/css/all.css">
+    <link rel="stylesheet" href="../css/mdb.css">
+    <link rel="stylesheet" href="../css/addons/datatables.min.css">
+    <!-- <link rel="stylesheet" href="css/styleA.css"> -->
+    <style>
+        body{
+            background:#343a40;
+            color:white;
+        }
+        .cs{
+            min-height: 90vh;
+        }
+        .ts{
+            min-height: 92%;
+        }
+
+        /*  Removing arrows on spinner */
+/* For Firefox */
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+/* for equal width of prepent-text  */
+
+
+.input-group>.input-group-prepend {
+   flex: 0 0 22%;
+}
+.input-group .input-group-text {
+   width: 100%;
+} 
+
+    </style>
+
+</head>
+
+<body >
+<%  response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+response.setHeader("Pragma", "no-cache");
+session = request.getSession(false);
+if (session.getAttribute("username") != null) {
+Connection con= DBServices.getConnection();
+PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM farmer_info ORDER BY farmer_info.farmer_id ASC");
+ResultSet resultSet = preparedStatement.executeQuery();
+%>
+        <nav class="navbar navbar-expand-sm  blue lighten-1" style="background-color: #e3f2fd;">
+                <!-- CUST_NAME -->
+                <span class="navbar-brand  border border-white rounded px-2 ml-3 text-white" style=" font-size: 30px" href="#"><strong>LOGO
+                        / NAME</strong></span>
+            </nav>
+
+    <div class="container-fluid">
+    <div class="row cs mt-3 ">
+        <div class="col-md-3">
+            <div class="text-center rounded badge badge-warning d-block">
+                <h1><strong>Add Farmer</strong></h1>
+            </div>
+            
+            <form action="/login" method="POST" class=" py-3 px-3 grey darken-4 rounded">
+                <div class="form-group  my-4">
+                    <div class="input-group my-4 ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ID</i></span>
+                        </div>
+                        <input type="number" class="form-control " name="farmer_id" placeholder="Farmer ID" min="0"
+                            required>
+                        
+                    </div>
+                </div>
+                <div class="form-group my-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name</span>
+                        </div>
+                        <input type="text" class="form-control" name="farmer_name" placeholder="Farmer Name" required>
+                    </div>
+                </div>
+                <div class="form-group my-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">D/O , W/O</span>
+                        </div>
+                        <input type="text" class="form-control" name="parents_name" placeholder="Parents Name" required>
+                    </div>
+                </div>
+                <div class="form-group my-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Type</span>
+                        </div>
+                        <input type="text" class="form-control" name="type" placeholder="Milk Type" required>
+                    </div>
+                </div>
+                <div class="form-group my-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Address</span>
+                        </div>
+                        <input type="text" class="form-control" name="address" placeholder="Address" required>
+                    </div>
+                </div>
+                <div class="form-group my-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Mobile</span>
+                        </div>
+                        <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" min="0"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group my-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Account</span>
+                        </div>
+                        <input type="number" class="form-control" name="savings_account" placeholder="Account Number"
+                            min="0" required>
+                    </div>
+                </div>
+                <div class="form-group  my-4">
+                    <button type="submit" class="btn btn-block  mb-2 btn-outline-primary">Login</button>
+                </div>
+                <h6 class="text-danger mt-2 text-center" id="error"></h6>
+            </form>
+        </div>
+
+        <!-- Show Data -->
+        <div class="col-md-9">
+           
+            <div class=" row cs">
+                
+                <div class="col rounded bg-dark">
+                        <div class=" row text-center rounded badge badge-success d-block ">
+                                <h1><strong>Show Farmer</strong></h1>
+                        </div>
+                    <table id=dtBasicExample class='table bg-white text-dark table-striped table-bordered'>
+                        <thead>
+                        <tr>
+                            <th class='th-sm'>ID
+                                <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                            </th>
+                            <th class='th-sm'>Name
+                                <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                            </th>
+                            <th class='th-sm'>Parents
+                                <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                            </th>
+                            <th class='th-sm'>Address
+                                <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                            </th>
+                            <th class='th-sm'>Type
+                                <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                            </th><th class='th-sm'>Mobile
+                            <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                        </th><th class='th-sm'>Account No.
+                            <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                        </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% while (resultSet.next()){%>
+                        <tr>
+                            <td style=font-size:1.1rem;><%=resultSet.getInt("farmer_id")%></td>
+                            <td style=font-size:1.1rem;><%=resultSet.getString("farmer_name")%></td>
+                            <td style=font-size:1.1rem;><%=resultSet.getString("parents_name")%></td>
+                            <td style=font-size:1.1rem;><%=resultSet.getString("address")%></td>
+                            <td style=font-size:1.1rem;><%=resultSet.getString("type")%></td>
+                            <td style=font-size:1.1rem;><%=resultSet.getInt("mobile")%></td>
+                            <td style=font-size:1.1rem;><%=resultSet.getInt("savings_account")%></td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+                <%} else {
+                out.println("Session invalid");
+                }
+                %>
+            </div>
+        </div>
+    </div>
+    </div>
+<script type='text/javascript' src=../js/jquery.min.js></script>
+<script type='text/javascript' src=../js/popper.min.js></script>
+<script type='text/javascript' src=../js/bootstrap.min.js></script>
+<script type='text/javascript' src=../js/mdb.min.js></script>
+<script type='text/javascript' src=../js/addons/datatables.js></script>
+<script type='text/javascript' src=../js/addons/buttons.flash.min.js></script>
+<script type='text/javascript' src=../js/addons/buttons.html5.min.js></script>
+<script type='text/javascript' src=../js/addons/buttons.print.min.js></script>
+<script type='text/javascript' src=../js/addons/dataTables.buttons.min.js></script>
+<script type='text/javascript' src=../js/addons/jszip.min.js></script>
+<script type='text/javascript' src=../js/addons/pdfmake.min.js></script>
+<script type='text/javascript' src=../js/addons/vfs_fonts.js></script>
+<script>
+    $(document).ready(function() {
+        $('#dtBasicExample').DataTable( {
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            dom:  "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>"+
+                "<'row'<'col-sm-12'B>>",
+            buttons: [
+
+                { extend: 'copy', className: 'btn btn-primary glyphicon glyphicon-duplicate' },
+                { extend: 'csv', className: 'btn btn-primary glyphicon glyphicon-save-file' },
+                { extend: 'excel', className: 'btn btn-primary glyphicon glyphicon-list-alt' },
+                { extend: 'pdf', className: 'btn btn-primary glyphicon glyphicon-file',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    customize: function (doc) {
+                        doc.content[1].table.widths =
+                            Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+                    }},
+                { extend: 'print', className: 'btn btn-primary glyphicon glyphicon-print',
+                }
+            ]
+        } );
+    } );
+</script>
+</body>
+
+</html>

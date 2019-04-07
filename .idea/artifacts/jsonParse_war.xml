@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jsonParse:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/jsonParse_war</output-path>
+    <root id="archive" name="jsonParse_war.war">
+      <element id="artifact" artifact-name="jsonParse:war exploded" />
+    </root>
+  </artifact>
+</component>

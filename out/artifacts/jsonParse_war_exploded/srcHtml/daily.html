@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fa5/css/all.css">
+    <link rel="stylesheet" href="css/mdb.css">
+    <link rel="stylesheet" href="css/styleA.css">
+</head>
+
+<body class="stylish-success">
+    <div class="container-fluid">
+        <div>
+            <div class="form-row align-items-center">
+                <div class="col-sm-2 my-1">
+                        <div class="input-group my-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pr-5">ID</span>
+                                </div>
+                                <input name="farmer_id" id="farmer_id" type="number" class="form-control" placeholder=" Farmer ID" required>
+                            </div>
+                </div>
+                <div class="col-sm-2 my-1">
+                        <div class="input-group my-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pr-5">Name</span>
+                                </div>
+                                <input name="farmer_name" id="farmer_name" type="text" class="form-control" placeholder="Farmer Name" >
+                            </div>
+                </div>
+                <div class="col-sm-2 my-1">
+                        <div class="input-group my-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pr-5"></span>
+                                </div>
+                                <input name="branch" id="branch" type="text" class="form-control" placeholder="Student Branch" >
+                            </div>
+                </div>
+                <div class="col-sm-2 my-1">
+                        <div class="input-group my-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pr-5">Age</span>
+                                </div>
+                                <input name="age" id="age" type="number" class="form-control" placeholder="Studnet Age" min="0" >
+                            </div>
+                </div>
+                <div class="col-sm-2 my-1">
+                        <div class="input-group my-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pr-5">Address</span>
+                                </div>
+                                <input name="address" id="address" type="text" class="form-control" placeholder="Address" >
+                            </div>
+                </div>
+            </div>
+            <div class="text-center"><button onclick="show()" class="btn btn-primary btn-lg">Insert Data</button></div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/mdb.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script type="text/javascript">
+
+        function show() {
+            var id=document.getElementById("id").value;
+            var urls = "getcustomer.jsp?id=" + id;
+            var xmlhttp;
+            var my_JSON_object = {};
+            if (window.XMLHttpRequest) {
+
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status == 200) {
+                        my_JSON_object = JSON.parse(xmlhttp.responseText);
+                        document.getElementById("name").value = my_JSON_object.name;
+                        document.getElementById("address").value = my_JSON_object.address;
+                        document.getElementById("age").value = my_JSON_object.age;
+                        document.getElementById("branch").value = my_JSON_object.branch;
+                    } else {
+                        alert("HTTP error " + xmlhttp.status + ": " + xmlhttp.statusText);
+                    }
+                }
+
+            }
+
+            xmlhttp.open("GET", urls);
+            xmlhttp.send();
+
+        }
+    </script>
+</body>
+
+</html>

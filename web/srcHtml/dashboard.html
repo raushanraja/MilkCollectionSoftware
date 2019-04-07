@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Milk Collection Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/fa5/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/mdb.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/custom.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/styleA.css" /> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/addons/datatables.css" />
+    <script src="main.js"></script>
+    <style>
+        body {
+            min-height: 100vh;
+            background: #dcdcdc;
+        }
+
+        .sidebar,
+        .cs {
+            min-height: 85vh;
+        }
+        
+        .bdg{
+            background-color: rgba(255, 255, 255, 0.849);
+        
+        }
+        bdd{
+            border: 5px solid rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+
+<body class="">
+    <nav class="navbar navbar-expand-sm  blue lighten-1" style="background-color: #e3f2fd;">
+        <!-- CUST_NAME -->
+        <span class="navbar-brand  border border-white rounded px-2 ml-3 text-white" style=" font-size: 30px" href="#"><strong>LOGO
+                / NAME</strong></span>
+    </nav>
+    <div class="container-fluid" style="min-height:90vh">
+        <div class="row justify-content-between ">
+            <div class="col-sm-3 ">
+                <div class="badge bdd rgba-black-strong z-depth-2 rounded cs my-4 w-75 d-block ">
+                        <div class="mt-5">
+                                <img src="images/login-icon.png" alt="" class="mx-auto img-thumbnail rgba-white-light d-block " style="height:100px">
+                            </div>
+                        <div class="mt-3 justify-content-center text-info">
+                            <div> <h3><strong>User: Admin</strong></h3></div>                            
+                            <div> <h3><strong>Login : Admin</strong></h3></div>                            
+                            <div> <h3><strong>User: Admin</strong></h3></div>                            
+                        </div>
+                </div>
+
+                
+                <!-- <div class="badge badge-danger  col align-self-end">
+                        <img src="images/logo.png" alt="comfed_logo" class="d-block m-auto py-3 pl-2 pr-4 bg-info">
+                    </div>   -->
+                <!-- <div class="card rounded-0 text-center">
+                          <div class="card-body">
+                            <h4 class="card-title">SideBar1</h4>
+                            <p class="card-text">Side</p>
+                          </div>
+                        </div> -->
+            </div>
+            <div class="col-sm-9">
+                <div class="container cs row m-auto">
+                    <div class="col-sm-3 badge px-2 mx-2 rgba-black-light  mt-3 align-self-center">
+                        
+                            <div class="card rgb">
+                                <a href="srcHtml/address.html">
+                                    <img src="images/my-icons/png/035-phone-book.png" alt="" class="p-4 bdg card-img-top">
+                                    <div class="card-body yt-green-dark">
+                                        <div class="card-title">
+                                            <h4 class="text-white text-center"><strong>Address Book</strong></h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        
+                    </div>
+                    <div class="col-sm-3 badge px-2 mx-2 rgba-black-light mt-3  align-self-center">
+                        <div class="card bg-danger">
+                            <a href="daily.html">
+                                <img src="images/my-icons/png/038-research.png" alt="" class="p-4 bdg card-img-top">
+                                <div class="card-body yt-green-dark">
+                                    <div class="card-title">
+                                        <h4 class="text-white text-center"><strong>Daily Register</strong></h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="col-sm-3 badge px-2 mx-2 rgba-black-light mt-3  align-self-center">
+                        <div class="card rgba-light-blue-light">
+                            <a href="payment.html">
+                                <img src="images/my-icons/png/014-get-money-1.png" alt="" class="p-4 bdg card-img-top">
+                                <div class="card-body yt-green-dark">
+                                    <div class="card-title">
+                                        <h4 class="text-white text-center"><strong>Payment Register</strong></h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 badge px-2 mx-2 rgba-black-light mt-3  align-self-center">
+                        <div class="card ">
+                            <a href="rate.html">
+                                <img src="images/my-icons/png/030-technical-support.png" alt="" class="p-4 rgba-light-blue-light card-img-top">
+                                <div class="card-body yt-green-dark">
+                                    <div class="card-title">
+                                        <h4 class="text-white text-center"><strong>Rate Chart</strong></h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 badge px-2 mx-2 rgba-black-light mt-3  align-self-center">
+                        <div class="card">
+                            <a href="print.html">
+                                <img src="images/my-icons/png/030-technical-support.png" alt="" class="p-4 rgba-light-blue-light card-img-top">
+                                <div class="card-body yt-green-dark">
+                                    <div class="card-title">
+                                        <h4 class="text-white text-center"><strong><i class="fas fa-print "></i> Print</strong></h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

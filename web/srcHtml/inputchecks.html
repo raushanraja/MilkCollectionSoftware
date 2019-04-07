@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fa5/css/all.css">
+    <link rel="stylesheet" href="css/mdb.css">
+    <link rel="stylesheet" href="css/addons/datatables.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- <link rel="stylesheet" href="css/styleA.css"> -->
+    <style>
+
+        /* REmoving the card-top shadow */
+        .card {
+            -webkit-box-shadow: unset;
+            box-shadow: unset;
+            border: none;
+            border-radius: 0;
+        }
+
+/* <!-- Top borders --> */
+        .card input{
+            
+        }
+        input[type='number'] {
+            -moz-appearance: textfield;
+        }
+
+        /* Webkit browsers like Safari and Chrome */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* for equal width of prepent-text  */
+
+        .input-group>.input-group-prepend {
+            flex: 0 0 22%;
+        }
+
+        .input-group .input-group-text {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" id="form" action="dailyInsert">
+
+        <div class="card rgba-teal-strong ">
+            <div class="card-body p-0">
+                <div class="form-row px-2">
+                    <div class="col-sm-1 mx-2 text-white text-center"><strong>S.no</strong></div>
+                    <div class="col-sm-2 mx-2 text-white text-center"><strong>Name</strong></div>
+                    <div class="col-sm-1 mx-2 text-white text-center"><strong>Shift</strong></div>
+                    <div class="col-sm-1 mx-2 text-white text-center"><strong>Date</strong></div>
+                </div>
+                <div class="form-row px-2">
+                    <input name="serial_no" id="serial_no" type="number" class="col-sm-1 mx-2 form-control " placeholder="S.No"
+                        min="0" value='<%=session.getAttribute("no")%>'>
+                    <input name="farmer_name" id="farmer_name" type="text" class="col-sm-2 mx-2 form-control " placeholder="Farmer Name"
+                        readonly>
+                    <select name="shift" id="shift" class="col-sm-1 mx-2 form-control" onchange="loadDoc()">
+                        <option id="opt1" style="font-size:1.1rem"
+                            <%if(session.getAttribute("shift").toString().equalsIgnoreCase("Morning"))
+                            out.print("selected");%>>Morning</option>
+                        <option id="opt2" style="font-size:1.1rem"
+                            <%if(session.getAttribute("shift").toString().equalsIgnoreCase("Evening"))
+                            out.print("selected");%>>Evening</option>
+                    </select>
+                    <input name="dailyDate" id="dailyDate" type="date" class="col-sm-1 mx-2 form-control" value='<%=session.getAttribute("date")%>'
+                        onchange="loadDoc();" >
+                </div>
+            </div>
+        </div>
+        <div class="card rgba-teal-strong pt-2">
+            <div class="card-body m-0 p-0">
+                <div class="form-row">
+                    <div class="col-sm text-white text-center"><strong>Code</strong></div>
+                    <div class="col-sm text-white text-center"><strong>Qty.</strong></div>
+                    <div class="col-sm text-white text-center"><strong>Fat</strong></div>
+                    <div class="col-sm text-white text-center"><strong>Snf</strong></div>
+                    <div class="col-sm text-white text-center"><strong>Milk Rate</strong></div>
+                    <div class="col-sm text-white text-center"><strong>Amount</strong></div>
+                    <div class="col-sm text-white text-center"><strong>Insert</strong></div>
+                </div>
+                <div class="form-row  p-2">
+                    <input name="farmer_id" id="farmer_id" type="text" class="col-sm  form-control mx-2 border border-info"
+                        placeholder="Farmer ID">
+                    <input name="qty" id="qty" type="text" class="col-sm  form-control mx-2 border border-info"
+                        placeholder="Milk Quantity" onchange="multiply()">
+                    <input name="fat" id="fat" type="text" class="col-sm  form-control mx-2 border border-info"
+                        placeholder="Milk Fat" value="0" onchange="multiply()">
+                    <input name="snf" id="snf" type="text" class="col-sm  form-control mx-2 border border-info"
+                        placeholder="Milk snf" value="0">
+                    <input name="MilkRate" id="MilkRate" type="text" class="col-sm  form-control mx-2 border border-info"
+                        placeholder="Milk Rate" onchange="multiply()">
+                    <input name="DailyAmount" id="DailyAmount" type="text" class="col-sm  form-control mx-2 border border-info last"
+                        placeholder="Total Amount">
+                    <button type="submit" class="btn btn-primary my-0">Insert Data</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $("*").keydown(function (event) {
+                if (event.which == 13) {
+                    if (!$(this).hasClass("last")) {
+                        event.preventDefault();
+                        $(this).nextAll('input:first').focus();
+                    } else {
+                        $("form").submit();
+                    }
+                }
+
+            }
+
+        );
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Daily Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/fa5/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/mdb.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/addons/datatables.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class='th-sm'>Date
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+                <th class='th-sm'>Shift
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+                <th class='th-sm'>Qty
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+                <th class='th-sm'>FAT
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+                <th class='th-sm'>SNF
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+                <th class='th-sm'>Rate
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+                <th class='th-sm'>Amount
+                    <i class='fa fa-sort float-right' aria-hidden='true'></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="box">
+            <tr>
+                    <td style="font-size:1.1rem;">[[Date]]</td>
+                    <td style="font-size:1.1rem;">[[shift]]</td>
+                    <td style="font-size:1.1rem;">[[qty]]</td>
+                    <td style="font-size:1.1rem;">[[fat]]</td>
+                    <td style="font-size:1.1rem;">[[snf]]</td>
+                    <td style="font-size:1.1rem;">[[MilkRate]]</td>
+                    <td style="font-size:1.1rem;">[[DailyAmount]]</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/addons/datatables.js"></script>
+    <script src="js/addons/buttons.html5.min.js"></script>
+    <script src="js/addons/buttons.print.min.js"></script>
+    <script src="js/addons/dataTables.buttons.min.js"></script>
+    <script src="js/addons/jszip.min.js"></script>
+    <script src="js/addons/pdfmake.min.js"></script>
+    <script src="js/addons/vfs_fonts.js"></script>
+    <script src="js/customDataTable.js"></script>
+    <script src="js/miranda.js"></script>
+    <script>
+        var list = [{
+            "DailyAmount": 2.56,
+            "MilkRate": 25.69,
+            "shift": "Evening",
+            "qty": 0.1,
+            "fat": 4,
+            "snf": 8.1,
+            "Date": "2018-10-31"
+        }, {
+            "DailyAmount": 2.56,
+            "MilkRate": 25.69,
+            "shift": "Evening",
+            "qty": 0.1,
+            "fat": 4,
+            "snf": 8.1,
+            "Date": "2018-10-31"
+        }, {
+            "DailyAmount": 2.56,
+            "MilkRate": 25.69,
+            "shift": "Evening",
+            "qty": 0.1,
+            "fat": 4,
+            "snf": 8.1,
+            "Date": "2018-10-31"
+        }, {
+            "DailyAmount": 2.56,
+            "MilkRate": 25.69,
+            "shift": "Evening",
+            "qty": 0.1,
+            "fat": 4,
+            "snf": 8.1,
+            "Date": "2018-10-31"
+        }, {
+            "DailyAmount": 2.56,
+            "MilkRate": 25.69,
+            "shift": "Evening",
+            "qty": 0.1,
+            "fat": 4,
+            "snf": 8.1,
+            "Date": "2018-10-31"
+        }];
+
+        $("#box").mirandajs(list);
+    </script>
+</body>
+
+</html>

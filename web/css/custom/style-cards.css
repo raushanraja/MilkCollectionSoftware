@@ -1,0 +1,116 @@
+.dark-grey-text {
+  color: #4f4f4f !important;
+}
+
+.dark-grey-text:hover, .dark-grey-text:focus {
+  color: #4f4f4f !important;
+}
+
+.social.fb {
+  color: #3b5998;
+}
+
+.social.tw {
+  color: #55acee;
+}
+
+.social.gplus {
+  color: #dd4b39;
+}
+
+.social.yt {
+  color: #ed302f;
+}
+
+.social.li {
+  color: #0082ca;
+}
+
+.social.pin {
+  color: #c61118;
+}
+
+.social.ins {
+  color: #2e5e86;
+}
+
+.social.git {
+  color: #333333;
+}
+
+.social.comm {
+  color: #30cfc0;
+}
+
+.social.vk {
+  color: #4c75a3;
+}
+
+.social.dribbble {
+  color: #ec4a89;
+}
+
+.social.so {
+  color: #ffac44;
+}
+
+.social.slack {
+  color: #56b68b;
+}
+
+.social.email {
+  color: #4b515d;
+}
+
+.social.reddit {
+  color: #ff4500;
+}
+
+.card-shrink .over, .card-widen .outer {
+  margin-bottom: 2rem;
+}
+
+.img-eff, .card-shrink .over .card-img-top, .card-widen .outer .card-img-top {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 3px;
+  -webkit-box-shadow: 0.3rem 0.3rem 20px 0.5rem rgba(0, 0, 0, 0.349);
+          box-shadow: 0.3rem 0.3rem 20px 0.5rem rgba(0, 0, 0, 0.349);
+}
+
+.card-shrink, .card-widen {
+  border: 0px !important;
+}
+
+body {
+  background: #DCDCDC !important;
+}
+
+.card {
+  -webkit-box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+}
+
+.img-eff {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.c {
+  margin-top: 2.45rem !important;
+}
+
+.card-shrink {
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+}
+
+.card-shrink .over {
+  margin-top: -2.5rem;
+}
+
+.card-widen .outer {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}

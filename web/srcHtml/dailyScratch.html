@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Daily Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/fa5/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/mdb.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/addons/datatables.css" />
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--Top Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light ">
+            <a class="navbar-brand" href="dailyScratch.html">MDSSU</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="dashboard.jsp">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Daily Register<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="print1.jsp">Print</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="rate_chart.jsp">Rate Chart</a>
+                    </li>
+                </ul>
+                <!-- Logout Button -->
+                <form action="logout" class="form-inline mt-2 mt-md-0">
+                    <button class="btn btn-deep-orange my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Page -->
+    <main>
+        <div class="container-fluid">
+            <!-- 1st row for: 
+                S.NO, Name, Date, Shift ,total amount, average fat & average snf-->
+        <form>                
+            <div class="row grey">
+                <div class="col">
+                    <div class="row d-none d-md-flex ">
+                        <div class="col-sm text-center text-white">S.NO</div>
+                        <div class="col-sm text-center text-white">Name</div>
+                        <div class="col-sm text-center text-white">Shift</div>
+                        <div class="col-sm text-center text-white">Date</div>
+                        <div class="col-sm text-center text-white">Tot. Amount</div>
+                        <div class="col-sm text-center text-white">Avg. FAT</div>
+                        <div class="col-sm text-center text-white">Avg. SNF</div>
+                    </div>
+                    <div class="row">
+                           
+                        <input name="" id="farmer_sno" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Serial No.">
+                        <input name="" id="farmer_name" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Name">
+                        <input name="" id="farmer_shift" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Shift">
+                        <input name="" id="daily_date" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Date">
+                        <input name="" id="daily_amount" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Total Amount">
+                        <input name="" id="daily_fat" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Avg. Fat">
+                        <input name="" id="daily_snf" type="text" class="col-sm my-1 mx-2 form-control text-center"     value="" placeholder="Avf. Snf">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- 2nd Row for taking input: 
+                ID, Qty, Fat, Snf, Milk Rate and Milk Amount
+                name="farmer_id"
+                name="qty"
+                name="fat"
+                name="snf"
+                name="MilkRate"
+                name="DailyAmount"
+            -->
+            <div class="row grey">
+                <div class="col">
+                    <div class="row d-none d-md-flex ">
+                        <div class="col-sm text-center text-white">ID</div>
+                        <div class="col-sm text-center text-white">Qty</div>
+                        <div class="col-sm text-center text-white">Fat</div>
+                        <div class="col-sm text-center text-white">Snf</div>
+                        <div class="col-sm text-center text-white">Milk Rate</div>
+                        <div class="col-sm text-center text-white">Milk Amount</div>
+                        <div class="col-sm text-center text-white">Submit</div>
+                    </div>
+                    <div class="row" class="">
+                        <input name="farmer_id"     id="farmer_id"     type="text"   class="col-sm my-1 mx-2 form-control text-center"       value="" placeholder="Enter ID"    required >
+                        <input name="qty"           id="farmer_qty"    type="text"   class="col-sm my-1 mx-2 form-control text-center"       value="" placeholder="Enter Qty."  required >
+                        <input name="fat"           id="farmer_fat"    type="text"   class="col-sm my-1 mx-2 form-control text-center"       value="" placeholder="Enter Fat"   required >
+                        <input name="snf"           id="farmer_snf"    type="text"   class="col-sm my-1 mx-2 form-control text-center"       value="" placeholder="Enter Snf"   required >
+                        <input name="MilkRate"      id="farmer_rate"   type="text"   class="col-sm my-1 mx-2 form-control text-center"       value="" placeholder="Milk Rate"   required >
+                        <input name="DailyAmount"   id="farmer_amount" type="text"   class="last col-sm my-1 mx-2 form-control text-center"  value="" placeholder="Milk Amount" required >
+                        <button                     id="daily_submit"  type="submit" class="col-sm  btn form-control btn-deep-orange">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+            <!-- 3rd row for displayinf daily register -->
+            <div class="row">
+               <!-- 
+                   
+                -->
+            </div>
+        </div>
+    </main>
+ 
+    <script type='text/javascript' src='js/jquery.min.js'></script>
+    <script type='text/javascript' src='js/popper.min.js'></script>
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/mdb.min.js'></script>
+    <script type='text/javascript' src='js/addons/datatables.js'></script>
+    <!-- <script type='text/javascript' src='js/addons/buttons.flash.min.js'></script> -->
+    <script type='text/javascript' src='js/addons/buttons.html5.min.js'></script>
+    <script type='text/javascript' src='js/addons/buttons.print.min.js'></script>
+    <script type='text/javascript' src='js/addons/dataTables.buttons.min.js'></script>
+    <script type='text/javascript' src='js/addons/jszip.min.js'></script>
+    <script type='text/javascript' src='js/addons/pdfmake.min.js'></script>
+    <script type='text/javascript' src='js/addons/vfs_fonts.js'></script>
+    <script src="js/enter.js"></script>
+    <script src="js/customDataTable.js"></script>
+    <script src="js/dailyEntry.js"></script>
+      
+</body>
+</html>
+
+

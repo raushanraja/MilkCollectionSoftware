@@ -1,0 +1,11 @@
+.dark-grey-text {
+  color: #4f4f4f !important;
+}
+
+.dark-grey-text:hover, .dark-grey-text:focus {
+  color: #4f4f4f !important;
+}
+
+body {
+  background: #d7ccc8;
+}

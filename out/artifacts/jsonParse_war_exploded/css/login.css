@@ -1,0 +1,69 @@
+body{
+    /* background: linear-gradient(to bottom right, #343a40, #363440)fixed; */
+    /* background: #1e7e57 */
+    background: #3A4044
+
+
+
+}
+
+
+
+/*  Removing arrows on spinner */
+/* For Firefox */
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+/* for equal width of prepent-text  */
+
+/* input-group-prepend equal width
+.input-group>.input-group-prepend {
+   flex: 0 0 25%;
+}
+.input-group .input-group-text {
+   width: 100%;
+} */
+
+/* enabeling and disabling select elements */
+
+.selectDisable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.selectEnable {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+
+.form{
+    border: 1px black solid;
+}
+
+.img{
+    height: 110px !important;
+    width: 110px !important ;
+}
